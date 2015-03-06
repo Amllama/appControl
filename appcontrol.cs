@@ -38,7 +38,8 @@ namespace AppControl
             IntPtr op = IntPtr.Zero;
             try
             {
-                Process fileopen = RunCommand.Command(app);
+                Process fileopen = new Process();
+                fileopen.StartInfo.FileName = app;
                 fileopen.Exited += fileopen_Exited;
                 fileopen.Start();
                 op = fileopen.MainWindowHandle;
